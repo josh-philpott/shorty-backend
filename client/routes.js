@@ -32,6 +32,14 @@ export default (
       }}
     />
     <Route
+      path="/shortys"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Shorty/pages/ShortyListPage/ShortyListPage').default);
+        });
+      }}
+    />
+    <Route
       path="/posts/:slug-:cuid"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
